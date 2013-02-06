@@ -30,4 +30,28 @@ class plugins
 
 		return $ret;
 	}
+
+	public function __get($name)
+	{
+		$ret = array();
+		foreach($this->plugins as $plugin)
+		{
+			if($plugin->name == $name)
+			{
+				return $plugin;
+			}
+
+			$ret[$plugin->name] = $plugin->$name;
+		}
+
+		return $ret;
+	}
+
+	public function __set($name, $value)
+	{
+		foreach($this->plugins as $plugin)
+		{
+			$plugin->$name = $value;
+		}
+	}
 }
