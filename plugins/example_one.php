@@ -1,6 +1,6 @@
 <?php
 
-class example_one
+class example_one extends plugin
 {
 	public function hello($arg)
 	{

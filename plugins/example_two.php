@@ -1,9 +1,11 @@
 <?php
 
-class example_two
+class example_two extends plugin
 {
 	public function test($one, $two)
 	{
-		echo "$one * $two: ". $one * $two ."\n";
+		$ret = $one * $two;
+		echo "$one * $two: ". $ret ."\n";
+		return $ret;
 	}
 }

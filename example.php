@@ -2,10 +2,14 @@
 
 require 'plugins.php';
 
-$hook = new Plugins;
+$plugins = new plugins;
 
-$hook->hello('World!');
-$hook->test(1, 2);
-$hook->somethingElse();
+$plugins->hello('World!');
+$ret = $plugins->test(1, 2);
+foreach($ret as $res)
+{
+	echo $res."\n";
+}
+$plugins->somethingElse();
 
 ?>

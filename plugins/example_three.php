@@ -1,6 +1,6 @@
 <?php
 
-class example_three
+class example_three extends plugin
 {
 	public function somethingElse()
 	{

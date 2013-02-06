@@ -1,6 +1,8 @@
 <?php
 
-class Plugins
+require_once('plugin.php');
+
+class plugins
 {
 	private $plugins = array();
 
@@ -17,14 +19,15 @@ class Plugins
 
 	public function __call($func, $args)
 	{
+		$ret = array();
 		foreach($this->plugins as $plugin)
 		{
 			if(method_exists($plugin, $func) && is_callable(array($plugin, $func)))
 			{
-				call_user_func_array(array($plugin, $func), $args);
+				$ret[$plugin->name] = call_user_func_array(array($plugin, $func), $args);
 			}
 		}
+
+		return $ret;
 	}
 }
-
-?>
